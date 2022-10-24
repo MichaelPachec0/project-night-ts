@@ -5,7 +5,7 @@ import figlet from 'figlet';
 
 import {fileTypes} from "./types/file";
 import {asyncApi} from "./api";
-import {ReturnPokeType, ClientRequest} from "./types/apiInterface";
+import {ApiCall} from "./types/apiInterface";
 
 const server: http.Server = http.createServer(serverListener);
 
@@ -63,7 +63,7 @@ async function handleResponse(err: NodeJS.ErrnoException | undefined, data: Buff
     if (!params) {
         res.end(data);
     } else {
-        const result: ReturnPokeType | ClientRequest = await asyncApi(params);
+        const result: ApiCall = await asyncApi(params);
         res.end(JSON.stringify(result));
     }
 }

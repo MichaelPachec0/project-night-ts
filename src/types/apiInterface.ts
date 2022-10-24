@@ -8,4 +8,6 @@ interface ClientRequest {
     score?: boolean
 }
 
-export {ReturnPokeType, ClientRequest}
+type ApiCall = ReturnPokeType | ClientRequest
+
+export {ApiCall, ReturnPokeType}

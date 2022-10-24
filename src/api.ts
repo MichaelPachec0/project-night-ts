@@ -1,5 +1,5 @@
 import fetch, {Headers, HeadersInit} from "node-fetch";
-import {ReturnPokeType, ClientRequest} from "./types/apiInterface";
+import {ApiCall, ReturnPokeType} from "./types/apiInterface";
 
 function randomize(): number {
     return Math.ceil(Math.random() * 100);
@@ -38,7 +38,7 @@ function comparePokes(arr: Array<string>): boolean {
     return arr[0] === arr[1];
 }
 
-async function asyncApi(params: URLSearchParams): Promise<ClientRequest | ReturnPokeType> {
+async function asyncApi(params: URLSearchParams): Promise<ApiCall> {
     if (params.get("startgame")) {
         return await returnPokes();
     } else if (params.get("choice")) {
